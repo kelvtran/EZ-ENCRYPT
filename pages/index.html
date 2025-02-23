@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyAllergens is an Allergen card application that keeps track of your allergens and displays them in multiple languages.">
+    <meta name="author" content="'Kelvin Tran">
+    <title>MyAllergens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <script src="../script/script.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="home">
+            <h4>MyAllergens</h4>
+        </div>
+        <div class="languages">
+            <h4> <i class="fas fa-globe"></i> Languages</h4>
+        </div>
+    </nav>
+
+    <div class="homepage_content">
+
+        <div class="homepage_display">
+            <h1>Hi my name is ____ and I'm allergic to _____.</h1>
+            <h1>Could you help me with the menu please?</h1>
+        </div>
+        
+        <div class="about">
+            <h3>Welcome to MyAllergens!</h3>
+            <p>Having allergens sucks!</p>
+            <p>MyAllergens aims to make your travelling and dining experiences a little bit easier by keeping track and displaying your allergens in multiple languages <br>so you can easily communicate your allergens to others. </p>
+            <p>Simply fill out the form and click submit to generate your allergen card in your preferred language.</p>
+            <h4>Thank you for using MyAllergens!</h4>
+        </div>
+    </div>
+
+    <div class="form">
+        <form id="allergenForm" action="card.html" target="_blank" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="allergens">Allergens:</label><br>
+            <input type="checkbox" id="peanuts" name="allergens" value="peanuts">
+            <label for="peanuts">Peanuts</label><br>
+            <input type="checkbox" id="dairy" name="allergens" value="dairy">
+            <label for="dairy">Dairy</label><br>
+            <input type="checkbox" id="gluten" name="allergens" value="gluten">
+            <label for="gluten">Gluten</label><br>
+            <input type="checkbox" id="soy" name="allergens" value="soy">
+            <label for="soy">Soy</label><br>
+            <input type="checkbox" id="shellfish" name="allergens" value="shellfish">
+            <label for="shellfish">Shellfish</label><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>MyAllergens &copy; 2021</p>
+    </div>
+</body>
+</html>
