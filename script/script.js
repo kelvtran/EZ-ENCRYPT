@@ -1,19 +1,19 @@
-document.getElementById("allergenForm").addEventListener("submit", function(event){
-    event.preventDefault();
+async function genAESKey(keysize) {
+    // Generate a random key of desrired size (128, 192, 256 bit)
+    let secretKey = await window.crypto.subtle.generateKey(
+        {
+            name: "AES-CBC",
+            length: keysize
+        }, 
+        true, 
+        ["encrypt", "decrypt"]
+    )
 
-    const form = document.getElementById("allergenForm");
-    const name = document.getElementById("name").value;
-    const selectedAllergens = form.querySelectorAll("input[type='checkbox']");
-    const allergens = [];
-    i = 0;
+    // Convert the key to a hex string
+    secretKeyHex = await window.crypto.subtle.exportKey("raw", secretKey)
+    secretKeyHex = await byteToHex(secretKey)
 
-    selectedAllergens.forEach(checkbox => {
-        if (checkbox.checked){
-            allergens[i] = checkbox.value;
-            i += 1;
-        }
-    });
+    document.getElementById("aes-key").innerHTML = secretKeyHex;
+}
 
-
-
-});
+async function byteToHex(buffer) {
