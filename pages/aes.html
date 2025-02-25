@@ -28,4 +28,21 @@
         <p id="aes-key" style="display:none"></p>
     </div>
 
-    <div 
+    <div class="aes-encrypt-form">
+        <h3>Encrypt your message with the generated AES key<h3></h3>
+        <h4>If you already have a pre-generated key - just input it into the box below:</h4>
+        <input type="text" id="aes-key-input" placeholder="Enter your AES key here" style="width:475px;">
+        <br><br>
+        <textarea id="aes-plaintext" placeholder="Enter your message here" style="height:200px; width:600px;"></textarea>
+        <br>
+        <button class="aes-encrypt-btn" onclick="aesEncrypt()">Encrypt</button>
+        <br>
+        <h4>Encrypted message:</h4>
+        <textarea id="aes-ciphertext" placeholder="Encrypted message will appear here" readonly></textarea>
+    </div>
+
+    <div class="footer">
+        <p>MyAllergens &copy; 2021</p>
+    </div>
+</body>
+</html>
