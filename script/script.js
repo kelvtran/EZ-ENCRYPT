@@ -10,10 +10,15 @@ async function genAESKey(keysize) {
     )
 
     // Convert the key to a hex string
-    secretKeyHex = await window.crypto.subtle.exportKey("raw", secretKey)
-    secretKeyHex = await byteToHex(secretKey)
 
+    // Export the key to a buffer -- data is in bytes
+    let secretKeyBuffer = await window.crypto.subtle.exportKey("raw", secretKey);
+    // Convert the buffer to an array -- array of bytes i.e [255, 0, 128, ...]
+    let secretKeyArray = Array.from(new Uint8Array(secretKeyBuffer));
+    // Converts each byte in array to a hex string and joins them together and ensures each byte is 2 characters long with padding
+    let secretKeyHex = secretKeyArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+    // Display the key on the page
     document.getElementById("aes-key").innerHTML = secretKeyHex;
+    document.getElementById("aes-key").style.display = "block";
 }
-
-async function byteToHex(buffer) {
